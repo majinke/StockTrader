@@ -21,36 +21,30 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
-using Stock.Local.SqlLite.Hibernate;
+using System.Text;
 
-namespace StockTrader
+namespace Stock.Account
 {
-    static class Program
+    public class StockHolderInfo
     {
-        /// <summary>
-        /// 应用程序的主入口点。
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            SqliteHelper instance = SqliteHelper.Instance;
-            try
-            {
-                instance.OpenSession();
-                // instance.InitDatabase();
-                Application.Run(new Form1());
-            }
-            finally
-            {
-                instance.CloseSession();
-            }
-        }
+        public virtual String StockAccount { get; set; }
+        public virtual String ExchangeName { get; set; }
+        public virtual float KeepCostPrice { get; set; }
+        
+        public virtual int Id { get; set; }
+        public virtual int StrategyId { get; set; }
+        public virtual String StockCode { get; set; }
+        public virtual String StockName { get; set; }
+        public virtual float MarketValue { get; set; }
+        public virtual float CostPrice { get; set; }
+        public virtual int CurrentAmount { get; set; }
+        public virtual int EnableAmount { get; set; }
+        public virtual int IncomeAmount { get; set; }  // 冻结
+        public virtual float LastPrice { get; set; }
+
+        public virtual DateTime Date { get; set; }
     }
 }

@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Stock.Common.Common
+namespace Stock.Common
 {
     /// <summary>
     /// 超时监测，确保每个下单操作不会挂起

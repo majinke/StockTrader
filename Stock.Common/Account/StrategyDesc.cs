@@ -21,36 +21,22 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
-using Stock.Local.SqlLite.Hibernate;
+using System.Text;
 
-namespace StockTrader
+namespace Stock.Account
 {
-    static class Program
+    public class StrategyDesc
     {
-        /// <summary>
-        /// 应用程序的主入口点。
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            SqliteHelper instance = SqliteHelper.Instance;
-            try
-            {
-                instance.OpenSession();
-                // instance.InitDatabase();
-                Application.Run(new Form1());
-            }
-            finally
-            {
-                instance.CloseSession();
-            }
-        }
+        public virtual int Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Desc { get; set; }
+        public virtual string Dll { get; set; }
+        public virtual string Clazz { get; set; }
+        public virtual bool Enabled { get; set; }
+        public virtual int Group { get; set; }
+        public virtual DateTime Date { get; set; }
     }
 }
